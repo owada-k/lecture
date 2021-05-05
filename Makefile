@@ -1,8 +1,5 @@
-#// SPDX-License-Identifier: BSD-2-Clause
 #
-#  Linux lecture sample programs
-#
-# Copyright (C) Kiyoshi Owada (owada.kiyoshi@gmail.com), 2021
+#  Lecture sample programs
 #
 
 CC	= gcc
