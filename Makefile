@@ -15,6 +15,7 @@ TARGET = \
 	multi_flat	\
 	square		\
 	get_mem		\
+	get_mem2	\
 	get_stack	\
 	get_stack2	\
 	fork_mem	\
