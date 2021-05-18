@@ -39,7 +39,7 @@ int set_data(char xor_data, int size, char data[size], int msg_flag)
 			system(CMD);
 		}
 
-		data[i] = i % (0x100 ^ sizeof(char));
+		data[i] = i % (0x01 << (sizeof(char) * 8));
 		data[i] ^= xor_data;
 	} 
 
