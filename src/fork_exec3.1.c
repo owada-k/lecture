@@ -77,7 +77,7 @@ int main(int argc, char** argv)
 	}
 
 
-	pid1 = fork_exec(PROG1, PROG1_ARGV, SCHED_FIFO, 1);
+	pid1 = fork_exec(PROG1, PROG1_ARGV, SCHED_OTHER, 0);
 	pid2 = fork_exec(PROG2, PROG2_ARGV, SCHED_RR, 2);
 	pid3 = fork_exec(PROG1, PROG1_ARGV, SCHED_FIFO, 2);
 	pid4 = fork_exec(PROG1, PROG1_ARGV, SCHED_FIFO, 3);
