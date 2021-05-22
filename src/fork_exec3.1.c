@@ -67,7 +67,7 @@ pid_t fork_exec(char *prog, char *prog_argv, int policy, int priority)
 
 int main(int argc, char** argv)
 {
-	pid_t	pid1, pid2;
+	pid_t	pid1, pid2, pid3, pid4, pid5;
 	struct sched_param	param;
 
 	param.sched_priority = 99;
@@ -79,17 +79,20 @@ int main(int argc, char** argv)
 
 	pid1 = fork_exec(PROG1, PROG1_ARGV, SCHED_FIFO, 1);
 	pid2 = fork_exec(PROG2, PROG2_ARGV, SCHED_RR, 2);
-	pid2 = fork_exec(PROG1, PROG1_ARGV, SCHED_FIFO, 2);
-	pid2 = fork_exec(PROG1, PROG1_ARGV, SCHED_FIFO, 3);
-	pid2 = fork_exec(PROG2, PROG2_ARGV, SCHED_RR, 2);
+	pid3 = fork_exec(PROG1, PROG1_ARGV, SCHED_FIFO, 2);
+	pid4 = fork_exec(PROG1, PROG1_ARGV, SCHED_FIFO, 3);
+	pid5 = fork_exec(PROG2, PROG2_ARGV, SCHED_RR, 2);
 
 
 //	setpriority(PRIO_PROCESS, pid1, 10);
 
-	printf("Parent(%d), child1(%d), child2(%d)\n", getpid(), pid1, pid2);
+	printf("Parent(%d), childs(%d, %d, %d, %d, %d)\n", getpid(), pid1, pid2, pid3, pid4, pid5);
 
 	waitpid(pid1, NULL, 0);
 	waitpid(pid2, NULL, 0);
+	waitpid(pid3, NULL, 0);
+	waitpid(pid4, NULL, 0);
+	waitpid(pid5, NULL, 0);
 
 	return 0;
 }
