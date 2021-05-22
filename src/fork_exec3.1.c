@@ -40,6 +40,21 @@ pid_t fork_exec(char *prog, char *prog_argv, int policy, int priority)
 			perror(strerror(errno));
 			return -3;
 		}
+		printf("[%d] ", getpid());
+		switch (policy) {
+		case SCHED_FIFO:
+			printf("sched policy SCHED_FIFO (prio = %d)\n", priority);
+			break;
+		case SCHED_RR:
+			printf("sched policy SCHED_RR (prio = %d)\n", priority);
+			break;
+		case SCHED_OTHER:
+			printf("sched policy SCHED_OTHER (prio = %d)\n", priority);
+			break;
+		default:
+			printf("sched policy %d (prio = %d)\n", policy, priority);
+			break;
+		}
 
 		if (execl(prog, prog, prog_argv, (char *)NULL) < 0) {
 			perror(strerror(errno));
