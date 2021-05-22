@@ -24,6 +24,8 @@ TARGET = \
 	fork_exec2.1	\
 	fork_exec2.2	\
 	fork_exec2.3	\
+	fork_exec3	\
+	fork_exec3.1	\
 
 
 SRC_DIR = src
